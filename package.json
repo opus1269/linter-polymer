@@ -1,0 +1,42 @@
+{
+  "name": "linter-polymer",
+  "main": "./lib/linter-polymer",
+  "version": "0.0.0",
+  "description": "Linter plugin for Polymer elements, using polylint",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Michael Updike",
+      "email": "igreilly1269@gmail.com"
+    }
+  ],
+  "keywords": [
+    "lint",
+    "linter",
+    "Polymer",
+    "polylint",
+    "hydrolysis"
+  ],
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/opus1269/linter-polymer"
+  },
+  "homepage": "https://github.com/opus1269/linter-polymer#readme",
+  "bugs": {
+    "url": "https://github.com/opus1269/linter-polymer/issues"
+  },
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  },
+  "dependencies": {
+    "polylint": "^2.9.0"
+  }
+}
