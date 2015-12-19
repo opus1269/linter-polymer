@@ -82,7 +82,7 @@ module.exports = LinterPolymer =
               return
 
             pointStart = [warning.location.line - 1, warning.location.column - 1]
-            pointEnd = [warning.location.line - 1, warning.location.column - 1]
+            pointEnd = [warning.location.line - 1, warning.location.column + 10]
 
             if warning.filename == fileName
               # Normal message from the input file
@@ -99,13 +99,13 @@ module.exports = LinterPolymer =
                   type: if warning.fatal then 'Error' else 'Warning'
                   text: 'Problems in imported file(s)'
                   filePath: fileAbsPath
-                  range: [[0,0], [0,0]]
+                  range: [[0,0], [0,1]]
                   trace: []
 
               traceError.trace.push
                 type: 'Trace'
                 text: warning.message
-                filePath: absPath + '/' + warning.filename
+                filePath: path.normalize(absPath + '/' + warning.filename)
                 range: [pointStart, pointEnd]
 
           if traceError then errors.push(traceError)
@@ -123,7 +123,7 @@ module.exports = LinterPolymer =
           else
             message = 'Unknown Error'
             pointStart = [0,0]
-            pointEnd = [0,0]
+            pointEnd = [0,1]
 
           return [
             type: 'Error',
