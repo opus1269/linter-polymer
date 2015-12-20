@@ -18,7 +18,7 @@ module.exports = LinterPolymer =
       order: 2
     allMessages:
       title: 'Display All Messages'
-      description: 'Trace messages to all imported files'
+      description: 'Display messages for all imported files'
       type: 'boolean'
       default: false
       order: 3
@@ -82,33 +82,14 @@ module.exports = LinterPolymer =
               return
 
             pointStart = [warning.location.line - 1, warning.location.column - 1]
-            pointEnd = [warning.location.line - 1, warning.location.column + 10]
+            pointEnd = [warning.location.line - 1, warning.location.column + 5]
 
-            if warning.filename == fileName
-              # Normal message from the input file
-              errors.push
-                type: if warning.fatal then 'Error' else 'Warning'
-                text: warning.message
-                filePath: fileAbsPath
-                range: [pointStart, pointEnd]
+            errors.push
+              type: if warning.fatal then 'Error' else 'Warning'
+              text: warning.message
+              filePath: path.normalize(absPath + '/' + warning.filename)
+              range: [pointStart, pointEnd]
 
-            else
-              # Message from another file. Add to trace array
-              if !traceError
-                traceError =
-                  type: if warning.fatal then 'Error' else 'Warning'
-                  text: 'Problems in imported file(s)'
-                  filePath: fileAbsPath
-                  range: [[0,0], [0,1]]
-                  trace: []
-
-              traceError.trace.push
-                type: 'Trace'
-                text: warning.message
-                filePath: path.normalize(absPath + '/' + warning.filename)
-                range: [pointStart, pointEnd]
-
-          if traceError then errors.push(traceError)
           return errors
 
         .catch (err) ->
