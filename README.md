@@ -24,7 +24,7 @@ You can configure linter-polymer by editing `~/.atom/config.cson` (choose Open Y
   # Name of the bower directory
   bowerDir: 'bower_components'
 
-  # Trace messages to all included files
+  # Display messages for all imported files
   allMessages: false
 ```
 
