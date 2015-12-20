@@ -1,7 +1,7 @@
 {
   "name": "linter-polymer",
   "main": "./lib/linter-polymer",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Linter plugin for Polymer elements, using polylint",
   "license": "MIT",
   "contributors": [
