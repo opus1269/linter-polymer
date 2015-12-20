@@ -73,7 +73,6 @@ module.exports = LinterPolymer =
         ).then (lintErrors) ->
 
           errors = []
-          traceError = null
 
           lintErrors.forEach (warning) ->
 
