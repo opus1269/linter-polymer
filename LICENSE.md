@@ -1,4 +1,6 @@
-Copyright (c) 2015 <Michael Updike igreilly1269@gmail.com>
+**The MIT License (MIT)**
+
+Copyright (c) 2015 Michael A Updike
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
