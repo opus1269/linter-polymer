@@ -37,6 +37,6 @@
     }
   },
   "dependencies": {
-    "polylint": "^2.10.1"
+    "polylint": "^2.9.0"
   }
 }

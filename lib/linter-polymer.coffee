@@ -1,6 +1,6 @@
 {CompositeDisposable} = require 'atom'
 path = require 'path'
-polylint = null
+polylint = require 'polylint'
 
 module.exports = LinterPolymer =
   config:
@@ -58,9 +58,6 @@ module.exports = LinterPolymer =
       lintOnFly: LinterPolymer.lintOnFly
 
       lint: (textEditor) =>
-
-        # load polylint on demand
-        polylint ?= require 'polylint'
 
         fileText = textEditor.getText()
         fileAbsPath = textEditor.getPath()
